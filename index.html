@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="吴宸宇，上海交通大学机械与动力工程学院本科生。关注机器人仿真、策略学习与智能驾驶决策，记录项目实践与学习探索。">
+  <meta name="theme-color" content="#f8fafc">
+  <title>吴宸宇｜机器人与机械 · 学习和探索</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "吴宸宇",
+    "alternateName": "Chenyu Wu",
+    "email": "w_wwwcy@sjtu.edu.cn",
+    "sameAs": ["https://github.com/Wcyhtt"],
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "上海交通大学机械与动力工程学院" },
+    "knowsAbout": ["机器人仿真", "策略学习", "规划与控制", "智能驾驶决策"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <a class="identity" href="#home" aria-label="吴宸宇主页"><span class="monogram">W<span>.</span></span><span>CHENYU WU</span></a>
+    <nav aria-label="主导航"><a href="#projects">项目实践</a><a href="#interests">研究兴趣</a><a href="#about">关于我</a></nav>
+    <span class="header-note">机械 · 机器人 · 学习</span>
+  </header>
+  <main id="main">
+    <section class="hero section-shell" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="line"></span> SHANGHAI JIAO TONG UNIVERSITY</p>
+        <h1>吴宸宇<span class="english-name">Chenyu Wu</span></h1>
+        <p class="hero-statement">从机械出发，探索机器人<br>如何<span>学习与行动。</span></p>
+        <p class="hero-description">上海交通大学机械与动力工程学院 · 大二本科生<br>关注机器人仿真、策略训练与智能驾驶决策。<br>在小规模实验中，学习把问题说清、把结果做实。</p>
+        <div class="hero-actions"><a class="button primary" href="#projects">查看项目实践</a><a class="text-link" href="#interests">我正在关注什么</a></div>
+        <div class="topic-strip"><span>机器人仿真</span><span>策略学习</span><span>规划与控制</span></div>
+      </div>
+      <div class="robot-panel">
+        <div class="panel-heading"><div><span class="eyebrow">KINEMATICS PLAYGROUND</span><h2>让两个关节，画出一个位置</h2></div><span class="pill">交互示意</span></div>
+        <svg id="robot" viewBox="0 0 560 370" role="img" aria-label="可通过下方滑块调整关节角度的平面两连杆运动学示意图">
+          <defs>
+            <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M 28 0 L 0 0 0 28" fill="none" stroke="#e5ebf1" stroke-width="1"/></pattern>
+            <linearGradient id="linkGrad" x1="0" x2="1"><stop stop-color="#182d48"/><stop offset="1" stop-color="#46637e"/></linearGradient>
+          </defs>
+          <rect width="560" height="370" fill="url(#grid)"/>
+          <circle cx="280" cy="190" r="144" fill="none" stroke="#cbd9e6" stroke-dasharray="4 7"/>
+          <path d="M55 190 H510 M280 35 V345" stroke="#b7c7d7" stroke-width="1"/>
+          <text x="512" y="182" class="svg-label">x</text><text x="291" y="37" class="svg-label">y</text>
+          <text x="22" y="28" class="svg-meta">PLANAR ARM / 2 DOF</text>
+          <text x="22" y="351" class="svg-meta">L₁ = 1.0　L₂ = 0.8</text>
+          <path id="projection" d="" fill="none" stroke="#2276e5" stroke-dasharray="4 5" opacity=".45"/>
+          <path id="arm-shadow" d="" fill="none" stroke="#10243a" stroke-width="26" stroke-linecap="round" opacity=".07" transform="translate(0,7)"/>
+          <path id="arm-path" d="" fill="none" stroke="url(#linkGrad)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="280" cy="190" r="18" fill="#152d48"/><circle cx="280" cy="190" r="7" fill="#f8fafc"/>
+          <circle id="elbow" r="14" fill="#f8fafc" stroke="#233e5b" stroke-width="5"/>
+          <circle id="end-glow" r="20" fill="#2478e8" opacity=".1"/>
+          <circle id="end" r="8" fill="#2478e8" stroke="white" stroke-width="3"/>
+          <text id="tool-label" class="svg-label" fill="#165fc2">末端</text>
+          <text x="295" y="215" class="svg-meta">基座</text>
+        </svg>
+        <div class="coordinates"><span>末端坐标 <b id="coords">x 0.680　y 1.361</b></span><button id="reset-arm" class="quiet-button" type="button">复位</button></div>
+        <div class="joint-controls">
+          <label for="q1"><span>关节 θ₁ <output id="q1-value" for="q1">35°</output></span><input type="range" id="q1" min="-60" max="120" value="35" step="1"></label>
+          <label for="q2"><span>关节 θ₂ <output id="q2-value" for="q2">65°</output></span><input type="range" id="q2" min="-145" max="145" value="65" step="1"></label>
+        </div>
+        <p class="figure-caption">拖动滑块，观察关节角与末端位置的关系。此处为运动学演示，不是项目实验录像。</p>
+      </div>
+    </section>
+
+    <section class="section-shell projects" id="projects">
+      <div class="section-heading"><div><p class="eyebrow">SELECTED PRACTICE</p><h2>把学习，放进具体问题里。</h2></div><p>记录做过的实验，也记录结论的边界。</p></div>
+      <article class="featured-project">
+        <div class="project-copy"><div class="tags"><span>基线复现与对照实验</span><span>2026.10</span></div>
+          <h3>数据缺了一段，<br>机器人异常检测还可靠吗？</h3>
+          <p>基于公开的 voraus-AD 机器人遥测数据，复现 Normalizing Flow 基线，比较相同缺失量下零散缺失与连续中断的影响，并检验填补与缺失增强训练的效果。</p>
+          <ul class="project-points"><li>完成基线训练、评分与断点恢复流程。</li><li>比较缺失结构、填补方法和增强策略。</li><li>同时检查误报、召回和完整数据性能。</li></ul>
+          <p class="project-insight"><span>阶段认识</span>连续缺失增强带来部分恢复，也伴随完整数据性能损失。当前成果是复现与实验分析，尚未形成经验证的方法创新。</p>
+          <button type="button" class="text-button" id="open-details" aria-haspopup="dialog">查看实验设置与结果</button>
+        </div>
+        <div class="results-panel">
+          <div class="results-heading"><h4>同样的缺失量，不同的影响</h4><span>整体 AUROC</span></div>
+          <div class="chart-tabs" role="tablist" aria-label="对照实验"><button type="button" role="tab" id="tab-structure" aria-controls="chart-content" aria-selected="true" data-mode="structure">缺失结构对照</button><button type="button" role="tab" id="tab-training" aria-controls="chart-content" aria-selected="false" tabindex="-1" data-mode="training">增强训练对照</button></div>
+          <div id="chart-content" role="tabpanel" aria-labelledby="tab-structure" tabindex="0"><div id="bars"></div><div class="chart-axis"><span>0</span><span>0.5</span><span>1.0</span></div><p id="chart-description" class="chart-description"></p></div>
+          <div class="chart-footnote"><b>结果来源</b><span>个人项目总结 · 2026.10.20<br>缺失条件为 5 个掩码种子均值，非 5 次独立训练。</span></div>
+        </div>
+      </article>
+      <article class="secondary-project"><div class="small-diagram" aria-hidden="true"><svg viewBox="0 0 210 130"><path d="M20 100 H193 M40 112 V17" stroke="#c7d7e6"/><path d="M40 100 C65 25 125 115 180 38" fill="none" stroke="#2575d3" stroke-width="2.5" stroke-dasharray="5 5"/><path d="M40 100 C66 43 127 122 180 60" fill="none" stroke="#38546e" stroke-width="2.5"/><circle cx="180" cy="38" r="5" fill="#2575d3"/><circle cx="180" cy="60" r="5" fill="#38546e"/></svg><span>跟踪误差 · 概念示意</span></div><div><p class="eyebrow">SELF-DIRECTED EXPLORATION</p><h3>两关节机械臂的延迟与跟踪仿真</h3><p>使用 Python 探索平面机械臂末端跟踪，观察控制延迟、速度比例变化和在线估计对运动过程的影响。通过运动与停止场景，学习如何定义误差、比较方案、检查模型假设。</p><div class="tags light"><span>Python</span><span>运动学</span><span>闭环控制</span><span>学习性仿真</span></div></div></article>
+    </section>
+
+    <section class="interests section-shell" id="interests">
+      <div class="section-heading"><div><p class="eyebrow">RESEARCH CURIOSITY</p><h2>我想继续追问的事情。</h2></div><p>从读过的工作，走向可以亲手验证的问题。</p></div>
+      <div class="interest-list">
+        <article><div class="interest-title"><span class="interest-symbol" aria-hidden="true">◇</span><h3>机器人仿真与训练数据</h3></div><div><p>如何在仿真中生成有效示范，让机械臂在环境变化后仍能完成任务？也关注机器人进入生物实验室等专业场景时，新的精度与交互要求。</p><div class="reading-links"><span>阅读关注</span><a href="https://arxiv.org/abs/2506.18088" target="_blank" rel="noopener noreferrer">RoboTwin 2.0</a><a href="https://arxiv.org/abs/2505.14030" target="_blank" rel="noopener noreferrer">AutoBio</a></div></div></article>
+        <article><div class="interest-title"><span class="interest-symbol" aria-hidden="true">≈</span><h3>动力学变化与策略适应</h3></div><div><p>质量、阻尼或执行条件改变时，机器人能否从交互反馈中识别变化，并调整原有策略？希望进一步理解建模、估计与策略学习之间的联系。</p><div class="reading-links"><span>阅读关注</span><a href="https://arxiv.org/abs/2210.04209" target="_blank" rel="noopener noreferrer">DOMINO</a></div></div></article>
+        <article><div class="interest-title"><span class="interest-symbol" aria-hidden="true">⌁</span><h3>智能驾驶决策与控制</h3></div><div><p>大语言模型给出的“让行、跟车、变道”建议，如何转换成可执行的车辆控制？关注语言决策与模型预测控制的协同。</p><div class="reading-links"><span>阅读关注</span><a href="https://arxiv.org/abs/2310.03026" target="_blank" rel="noopener noreferrer">LanguageMPC</a></div></div></article>
+      </div>
+      <p class="reading-note">以上为研究兴趣与论文阅读记录，相关论文并非我的研究成果。</p>
+    </section>
+
+    <section class="about section-shell" id="about">
+      <div class="about-intro"><p class="eyebrow">A LITTLE ABOUT ME</p><h2>机械是起点，<br>实践让方向更清楚。</h2><p>我是上海交通大学机械与动力工程学院的大二学生，目前正在寻找本科科研的参与机会。希望从仿真实验、基线复现和误差分析做起，逐步积累机器人与人工智能交叉研究的能力。</p><p>我还在建立自己的工具与方法：遇到问题先明确假设，做实验时保留对照，得到结果后检查它究竟能说明什么。</p><p class="contact-line">如果你在做相关的项目，或者想聊聊机器人与学习，欢迎来信：<a class="text-link" href="mailto:w_wwwcy@sjtu.edu.cn">w_wwwcy@sjtu.edu.cn</a></p></div>
+      <div class="foundation"><h3>正在积累的基础</h3><dl><div><dt>数学与力学</dt><dd>高等数学、线性代数、概率统计<br>正在学习理论力学与数学物理方法</dd></div><div><dt>编程与实验</dt><dd>C++ 课程基础、Python 实验实践<br>正在学习数据结构</dd></div><div><dt>下一步</dt><dd>围绕一个明确的机器人问题，<br>完成更扎实的复现与小规模验证</dd></div></dl></div>
+    </section>
+  </main>
+  <footer class="site-footer section-shell"><div><b>吴宸宇 <span>Chenyu Wu</span></b><p>上海交通大学 · 机械与动力工程学院</p><p class="footer-contact"><a href="mailto:w_wwwcy@sjtu.edu.cn">w_wwwcy@sjtu.edu.cn</a><a href="https://github.com/Wcyhtt" target="_blank" rel="noopener noreferrer">GitHub · Wcyhtt</a></p></div><div class="footer-right"><span>持续学习，认真验证。</span><a href="#home">回到顶部</a></div></footer>
+
+  <dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span class="eyebrow">PROJECT NOTES</span><button type="button" class="close-button" id="close-details" aria-label="关闭实验详情">关闭</button></div><h2 id="dialog-title">机器人遥测缺失鲁棒性实验</h2><p class="dialog-lead">公开基线复现 · 缺失结构对照 · 普通增强验证</p>
+    <h3>实验设置</h3><div class="dialog-facts"><div><span>数据集</span><b>voraus-AD · 100 Hz</b></div><div><span>基线</span><b>官方 Normalizing Flow</b></div><div><span>基线训练</span><b>CPU · 70 轮</b></div><div><span>评价周期</span><b>209 正常 + 755 故障</b></div></div>
+    <p>人工缺失设置：一个轴组的 21 个通道，每通道缺失 50 点。连续条件对应 0.5 秒，零散条件匹配缺失数量。分别比较前值填补、线性插值，以及正常续训、零散增强、连续增强。</p>
+    <h3>最值得保留的认识</h3><ul><li>零散缺失下，线性插值能使排序性能接近完整基线；连续中断仍明显退化。</li><li>连续增强将缺失条件平均 AUROC 从正常续训的 0.6460 提高到 0.7575，但完整数据召回从 69.54% 降至 61.32%。</li><li>高召回可能伴随大量误报，因此不能只看单一指标。</li></ul>
+    <h3>证据范围</h3><p>仅包含一个数据集及有限训练随机种子；五个掩码种子复用同一批周期。线性插值为离线对照，人工遥测缺失不等于真实总线故障。项目尚无论文或经验证的方法创新，当前保留复现流程、结果与阶段分析。</p>
+    <div class="dialog-actions"><a class="button primary" href="project-note.txt" download>下载简要项目记录</a><a href="https://github.com/vorausrobotik/voraus-ad-dataset" target="_blank" rel="noopener noreferrer">查看上游数据与代码</a></div>
+  </dialog>
+</body>
+</html>
