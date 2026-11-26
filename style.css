@@ -9,3 +9,5 @@
 .footer-contact a:hover{color:var(--blue);border-color:var(--blue)}
 .contact-line .text-link{white-space:nowrap}
 @media(max-width:800px){.footer-contact{gap:14px}}
+.project-link{margin-top:16px}
+.project-link .text-link{font-size:.875rem}
