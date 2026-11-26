@@ -11,3 +11,6 @@
 @media(max-width:800px){.footer-contact{gap:14px}}
 .project-link{margin-top:16px}
 .project-link .text-link{font-size:.875rem}
+.lab{padding-top:76px;padding-bottom:84px;border-top:1px solid var(--line)}
+.lab .secondary-project:first-of-type{margin-top:0}
+@media(max-width:800px){.lab{padding-top:58px;padding-bottom:62px}}
